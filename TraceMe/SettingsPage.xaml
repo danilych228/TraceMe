@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TraceMe.SettingsPage"
+             BackgroundColor="Black"
+             Title="Настройки">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Список настроек -->
+        <ScrollView Grid.Row="0" Padding="20">
+            <VerticalStackLayout Spacing="20">
+
+                <!-- Тема -->
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="Тёмная тема" TextColor="White" FontSize="16" VerticalOptions="Center" />
+                    <Switch x:Name="DarkThemeSwitch" 
+                            HorizontalOptions="EndAndExpand" 
+                            Toggled="OnThemeToggled" />
+                </StackLayout>
+
+                <!-- Автосохранение данных -->
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="Автосохранение" TextColor="White" FontSize="16" VerticalOptions="Center" />
+                    <Switch x:Name="AutoSaveSwitch" 
+                            HorizontalOptions="EndAndExpand" 
+                            IsToggled="True" />
+                </StackLayout>
+
+                <!-- Интервал обновления (BLE) -->
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="Интервал опроса (мс)" TextColor="White" FontSize="16" VerticalOptions="Center" />
+                    <Entry x:Name="UpdateIntervalEntry" 
+                           Text="200" 
+                           WidthRequest="100" 
+                           HorizontalOptions="End" 
+                           TextColor="White" 
+                           BackgroundColor="#333333" />
+                </StackLayout>
+
+                <!-- Кнопка очистки логов -->
+                <Button Text="Очистить логи данных"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        Clicked="OnClearLogsClicked" />
+
+                <!-- Версия приложения -->
+                <Label x:Name="VersionLabel" 
+                       Text="Версия: 1.0.0" 
+                       TextColor="Gray" 
+                       HorizontalOptions="Center" 
+                       FontSize="12" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Нижняя панель навигации -->
+        <Grid Grid.Row="1"
+              BackgroundColor="Black"
+              Padding="0"
+              HeightRequest="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="document.png"
+                         BackgroundColor="Transparent"
+                         WidthRequest="50"
+                         HeightRequest="50"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Grid.Column="0"
+                         Clicked="OnMenuClicked" />
+            <ImageButton Source="home_disactive.png"
+                         BackgroundColor="Transparent"
+                         WidthRequest="50"
+                         HeightRequest="50"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Grid.Column="1"
+                         Clicked="OnHomeClicked" />
+            <ImageButton Source="activity.png"
+                         BackgroundColor="Transparent"
+                         WidthRequest="50"
+                         HeightRequest="50"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Grid.Column="2"
+                         Clicked="OnChartClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>

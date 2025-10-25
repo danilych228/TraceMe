@@ -1,6 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tracemecorp.traceme" android:versionCode="1" android:versionName="2.2.8">
+	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:supportsRtl="true">
+		<receiver android:name=".TraceMeWidget"
+          android:exported="true">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider"
+					   android:resource="@xml/trace_widget_info" />
+		</receiver>
+
+		<receiver android:name=".WidgetUpdateReceiver"
+				  android:exported="true">
+			<intent-filter>
+				<action android:name="WIDGET_UPDATE_ACTION" />
+			</intent-filter>
+		</receiver>
+	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+	<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+	<uses-permission android:name="android.permission.READ_CLIPBOARD" />
+	<uses-permission android:name="android.permission.WRITE_CLIPBOARD" />
+	<uses-permission android:name="android.permission.BLUETOOTH_SCAN" 
+                 android:usesPermissionFlags="neverForLocation" />
+	<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 </manifest>

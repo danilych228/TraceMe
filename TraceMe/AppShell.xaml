@@ -4,11 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TraceMe"
+    FlyoutBehavior="Disabled"
     Title="TraceMe">
-
     <ShellContent
-        Title="Home"
+        Title=""
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
+    <ShellContent Route="ActivityPage" ContentTemplate="{DataTemplate local:ActivityPage}" />
+    <ShellContent Route="MenuPage" ContentTemplate="{DataTemplate local:MenuPage}" />
+    <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
 </Shell>
